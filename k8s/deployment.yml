@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: attendant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: attendant
+  template:
+    metadata:
+      labels:
+        app: attendant
+    spec:
+      containers:
+      - name: attendant
+        image: ghcr.io/c-4u/attendant
+        ports:
+        - name: rest
+          containerPort: 8080
+        envFrom:
+          - secretRef:
+              name: attendant-secret
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "50m"
+
+      imagePullSecrets:
+          - name: regsecret
