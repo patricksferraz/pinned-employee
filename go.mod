@@ -11,7 +11,6 @@ require (
 	github.com/jinzhu/gorm v1.9.16
 	github.com/joho/godotenv v1.4.0
 	github.com/lib/pq v1.10.4
-	github.com/paemuri/brdoc v1.1.2
 	github.com/satori/go.uuid v1.2.0
 	github.com/spf13/cobra v1.3.0
 	github.com/swaggo/fiber-swagger v1.2.0
