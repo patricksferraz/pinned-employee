@@ -1,4 +1,4 @@
-module github.com/c-4u/attendant
+module github.com/c-4u/pinned-attendant
 
 go 1.17
 

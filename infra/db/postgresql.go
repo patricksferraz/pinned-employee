@@ -3,7 +3,7 @@ package db
 import (
 	"fmt"
 
-	"github.com/c-4u/attendant/domain/entity"
+	"github.com/c-4u/pinned-attendant/domain/entity"
 	"github.com/jinzhu/gorm"
 	_ "github.com/lib/pq"
 	_ "gorm.io/driver/sqlite"

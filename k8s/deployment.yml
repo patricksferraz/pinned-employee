@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: attendant
-        image: ghcr.io/c-4u/attendant
+        image: ghcr.io/c-4u/pinned-attendant
         ports:
         - name: rest
           containerPort: 8080
