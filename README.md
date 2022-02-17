@@ -22,7 +22,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/c-4u/attendant">
+  <a href="https://github.com/c-4u/pinned-attendant">
     <img src="img/logo.png" alt="Logo" width="100" height="100">
   </a>
 
@@ -31,14 +31,14 @@
   <p align="center">
     Microservice for time recording
     <br />
-    <a href="https://github.com/c-4u/attendant"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/c-4u/pinned-attendant"><strong>Explore the docs »</strong></a>
     <!-- <br />
     <br />
-    <a href="https://github.com/c-4u/attendant">View Demo</a>
+    <a href="https://github.com/c-4u/pinned-attendant">View Demo</a>
     ·
-    <a href="https://github.com/c-4u/attendant">Report Bug</a>
+    <a href="https://github.com/c-4u/pinned-attendant">Report Bug</a>
     ·
-    <a href="https://github.com/c-4u/attendant">Request Feature</a>-->
+    <a href="https://github.com/c-4u/pinned-attendant">Request Feature</a>-->
   </p>
 </p>
 
@@ -114,7 +114,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_ --
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/c-4u/attendant/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/c-4u/pinned-attendant/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -150,7 +150,7 @@ Any contributions you make are **greatly appreciated**.
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/c-4u/attendant.git
+   git clone https://github.com/c-4u/pinned-attendant.git
    ```
 
 2. Run
@@ -183,7 +183,7 @@ Any contributions you make are **greatly appreciated**.
 
 Coding4u - contato@coding4u.com.br - [website](http://coding4u.com.br)
 
-Project Link: [attendant](https://github.com/c-4u/attendant)
+Project Link: [attendant](https://github.com/c-4u/pinned-attendant)
 
 <!-- ACKNOWLEDGEMENTS -->
 <!-- ## Acknowledgements
