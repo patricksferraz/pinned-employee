@@ -16,11 +16,11 @@ type IDResponse struct {
 	ID string `json:"id"`
 }
 
-type CreateAttendantRequest struct {
+type CreateEmployeeRequest struct {
 	Name string `json:"name"`
 }
 
-type Attendant struct {
+type Employee struct {
 	Base `json:",inline"`
 	Name string `json:"name"`
 }

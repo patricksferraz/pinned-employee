@@ -2,7 +2,7 @@ package rest
 
 import (
 	"github.com/asaskevich/govalidator"
-	"github.com/c-4u/pinned-attendant/domain/service"
+	"github.com/c-4u/pinned-employee/domain/service"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -16,57 +16,57 @@ func NewRestService(service *service.Service) *RestService {
 	}
 }
 
-// CreateAttendant godoc
-// @Summary create a new attendant
-// @ID createAttendant
-// @Tags Attendant
-// @Description Router for create a new attendant
+// CreateEmployee godoc
+// @Summary create a new employee
+// @ID createEmployee
+// @Tags Employee
+// @Description Router for create a new employee
 // @Accept json
 // @Produce json
-// @Param body body CreateAttendantRequest true "JSON body for create a new attendant"
+// @Param body body CreateEmployeeRequest true "JSON body for create a new employee"
 // @Success 200 {object} IDResponse
 // @Failure 400 {object} HTTPResponse
 // @Failure 403 {object} HTTPResponse
-// @Router /attendants [post]
-func (t *RestService) CreateAttendant(c *fiber.Ctx) error {
-	var req CreateAttendantRequest
+// @Router /employees [post]
+func (t *RestService) CreateEmployee(c *fiber.Ctx) error {
+	var req CreateEmployeeRequest
 
 	if err := c.BodyParser(&req); err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(HTTPResponse{Msg: err.Error()})
 	}
 
-	attendantID, err := t.Service.CreateAttendant(c.Context(), &req.Name)
+	employeeID, err := t.Service.CreateEmployee(c.Context(), &req.Name)
 	if err != nil {
 		return c.Status(fiber.StatusForbidden).JSON(HTTPResponse{Msg: err.Error()})
 	}
 
-	return c.Status(fiber.StatusOK).JSON(IDResponse{ID: *attendantID})
+	return c.Status(fiber.StatusOK).JSON(IDResponse{ID: *employeeID})
 }
 
-// FindAttendant godoc
-// @Summary find a attendant
-// @ID findAttendant
-// @Tags Attendant
-// @Description Router for find a attendant
+// FindEmployee godoc
+// @Summary find a employee
+// @ID findEmployee
+// @Tags Employee
+// @Description Router for find a employee
 // @Accept json
 // @Produce json
-// @Param attendant_id path string true "Attendant ID"
-// @Success 200 {object} Attendant
+// @Param employee_id path string true "Employee ID"
+// @Success 200 {object} Employee
 // @Failure 400 {object} HTTPResponse
 // @Failure 403 {object} HTTPResponse
-// @Router /attendants/{attendant_id} [get]
-func (t *RestService) FindAttendant(c *fiber.Ctx) error {
-	attendantID := c.Params("attendant_id")
-	if !govalidator.IsUUIDv4(attendantID) {
+// @Router /employees/{employee_id} [get]
+func (t *RestService) FindEmployee(c *fiber.Ctx) error {
+	employeeID := c.Params("employee_id")
+	if !govalidator.IsUUIDv4(employeeID) {
 		return c.Status(fiber.StatusBadRequest).JSON(HTTPResponse{
-			Msg: "attendant_id is not a valid uuid",
+			Msg: "employee_id is not a valid uuid",
 		})
 	}
 
-	attendant, err := t.Service.FindAttendant(c.Context(), &attendantID)
+	employee, err := t.Service.FindEmployee(c.Context(), &employeeID)
 	if err != nil {
 		return c.Status(fiber.StatusForbidden).JSON(HTTPResponse{Msg: err.Error()})
 	}
 
-	return c.Status(fiber.StatusOK).JSON(attendant)
+	return c.Status(fiber.StatusOK).JSON(employee)
 }

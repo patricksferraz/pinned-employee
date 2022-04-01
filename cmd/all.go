@@ -11,9 +11,9 @@ import (
 	"runtime"
 
 	"github.com/Netflix/go-env"
-	"github.com/c-4u/pinned-attendant/app/rest"
-	"github.com/c-4u/pinned-attendant/infra/client/kafka"
-	"github.com/c-4u/pinned-attendant/infra/db"
+	"github.com/c-4u/pinned-employee/app/rest"
+	"github.com/c-4u/pinned-employee/infra/client/kafka"
+	"github.com/c-4u/pinned-employee/infra/db"
 	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
 	"github.com/joho/godotenv"
 	"github.com/spf13/cobra"

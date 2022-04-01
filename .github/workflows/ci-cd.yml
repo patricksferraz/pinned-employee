@@ -1,4 +1,4 @@
-name: Attendant - (CI/CD)
+name: Employee - (CI/CD)
 
 on:
   pull_request:

@@ -3,7 +3,7 @@ package db
 import (
 	"fmt"
 
-	"github.com/c-4u/pinned-attendant/domain/entity"
+	"github.com/c-4u/pinned-employee/domain/entity"
 	"github.com/jinzhu/gorm"
 	_ "github.com/lib/pq"
 	_ "gorm.io/driver/sqlite"
@@ -41,6 +41,6 @@ func (p *PostgreSQL) Debug(enable bool) {
 
 func (p *PostgreSQL) Migrate() {
 	p.Db.AutoMigrate(
-		&entity.Attendant{},
+		&entity.Employee{},
 	)
 }

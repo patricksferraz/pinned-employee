@@ -1,7 +1,7 @@
 package topic
 
 const (
-	NEW_ATTENDANT string = "NEW_ATTENDANT"
+	NEW_EMPLOYEE string = "NEW_EMPLOYEE"
 )
 
 var CONSUMER_TOPICS = []string{}

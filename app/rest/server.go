@@ -4,19 +4,19 @@ import (
 	"fmt"
 	"log"
 
-	_ "github.com/c-4u/pinned-attendant/app/rest/docs"
-	"github.com/c-4u/pinned-attendant/domain/service"
-	"github.com/c-4u/pinned-attendant/infra/client/kafka"
-	"github.com/c-4u/pinned-attendant/infra/db"
-	"github.com/c-4u/pinned-attendant/infra/repo"
+	_ "github.com/c-4u/pinned-employee/app/rest/docs"
+	"github.com/c-4u/pinned-employee/domain/service"
+	"github.com/c-4u/pinned-employee/infra/client/kafka"
+	"github.com/c-4u/pinned-employee/infra/db"
+	"github.com/c-4u/pinned-employee/infra/repo"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	fiberSwagger "github.com/swaggo/fiber-swagger"
 )
 
-// @title Attendant Swagger API
+// @title Employee Swagger API
 // @version 1.0
-// @description Swagger API for Attendant Service.
+// @description Swagger API for Employee Service.
 // @termsOfService http://swagger.io/terms/
 
 // @contact.name Coding4u
@@ -41,9 +41,9 @@ func StartRestServer(pg *db.PostgreSQL, kp *kafka.KafkaProducer, port int) {
 	v1 := api.Group("/v1")
 	v1.Get("/swagger/*", fiberSwagger.WrapHandler)
 	{
-		attendant := v1.Group("/attendants")
-		attendant.Post("", restService.CreateAttendant)
-		attendant.Get("/:attendant_id", restService.FindAttendant)
+		employee := v1.Group("/employees")
+		employee.Post("", restService.CreateEmployee)
+		employee.Get("/:employee_id", restService.FindEmployee)
 	}
 
 	addr := fmt.Sprintf("0.0.0.0:%d", port)

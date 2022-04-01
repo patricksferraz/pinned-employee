@@ -28,9 +28,9 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/attendants": {
+        "/employees": {
             "post": {
-                "description": "Router for create a new attendant",
+                "description": "Router for create a new employee",
                 "consumes": [
                     "application/json"
                 ],
@@ -38,18 +38,18 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Attendant"
+                    "Employee"
                 ],
-                "summary": "create a new attendant",
-                "operationId": "createAttendant",
+                "summary": "create a new employee",
+                "operationId": "createEmployee",
                 "parameters": [
                     {
-                        "description": "JSON body for create a new attendant",
+                        "description": "JSON body for create a new employee",
                         "name": "body",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/rest.CreateAttendantRequest"
+                            "$ref": "#/definitions/rest.CreateEmployeeRequest"
                         }
                     }
                 ],
@@ -75,9 +75,9 @@ var doc = `{
                 }
             }
         },
-        "/attendants/{attendant_id}": {
+        "/employees/{employee_id}": {
             "get": {
-                "description": "Router for find a attendant",
+                "description": "Router for find a employee",
                 "consumes": [
                     "application/json"
                 ],
@@ -85,15 +85,15 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Attendant"
+                    "Employee"
                 ],
-                "summary": "find a attendant",
-                "operationId": "findAttendant",
+                "summary": "find a employee",
+                "operationId": "findEmployee",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Attendant ID",
-                        "name": "attendant_id",
+                        "description": "Employee ID",
+                        "name": "employee_id",
                         "in": "path",
                         "required": true
                     }
@@ -102,7 +102,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/rest.Attendant"
+                            "$ref": "#/definitions/rest.Employee"
                         }
                     },
                     "400": {
@@ -122,7 +122,15 @@ var doc = `{
         }
     },
     "definitions": {
-        "rest.Attendant": {
+        "rest.CreateEmployeeRequest": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "rest.Employee": {
             "type": "object",
             "properties": {
                 "created_at": {
@@ -135,14 +143,6 @@ var doc = `{
                     "type": "string"
                 },
                 "updated_at": {
-                    "type": "string"
-                }
-            }
-        },
-        "rest.CreateAttendantRequest": {
-            "type": "object",
-            "properties": {
-                "name": {
                     "type": "string"
                 }
             }
@@ -189,8 +189,8 @@ var SwaggerInfo = swaggerInfo{
 	Host:        "",
 	BasePath:    "/api/v1",
 	Schemes:     []string{},
-	Title:       "Attendant Swagger API",
-	Description: "Swagger API for Attendant Service.",
+	Title:       "Employee Swagger API",
+	Description: "Swagger API for Employee Service.",
 }
 
 type s struct{}

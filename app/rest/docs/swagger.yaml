@@ -1,6 +1,11 @@
 basePath: /api/v1
 definitions:
-  rest.Attendant:
+  rest.CreateEmployeeRequest:
+    properties:
+      name:
+        type: string
+    type: object
+  rest.Employee:
     properties:
       created_at:
         type: string
@@ -9,11 +14,6 @@ definitions:
       name:
         type: string
       updated_at:
-        type: string
-    type: object
-  rest.CreateAttendantRequest:
-    properties:
-      name:
         type: string
     type: object
   rest.HTTPResponse:
@@ -31,24 +31,24 @@ info:
   contact:
     email: contato@coding4u.com.br
     name: Coding4u
-  description: Swagger API for Attendant Service.
+  description: Swagger API for Employee Service.
   termsOfService: http://swagger.io/terms/
-  title: Attendant Swagger API
+  title: Employee Swagger API
   version: "1.0"
 paths:
-  /attendants:
+  /employees:
     post:
       consumes:
       - application/json
-      description: Router for create a new attendant
-      operationId: createAttendant
+      description: Router for create a new employee
+      operationId: createEmployee
       parameters:
-      - description: JSON body for create a new attendant
+      - description: JSON body for create a new employee
         in: body
         name: body
         required: true
         schema:
-          $ref: '#/definitions/rest.CreateAttendantRequest'
+          $ref: '#/definitions/rest.CreateEmployeeRequest'
       produces:
       - application/json
       responses:
@@ -64,19 +64,19 @@ paths:
           description: Forbidden
           schema:
             $ref: '#/definitions/rest.HTTPResponse'
-      summary: create a new attendant
+      summary: create a new employee
       tags:
-      - Attendant
-  /attendants/{attendant_id}:
+      - Employee
+  /employees/{employee_id}:
     get:
       consumes:
       - application/json
-      description: Router for find a attendant
-      operationId: findAttendant
+      description: Router for find a employee
+      operationId: findEmployee
       parameters:
-      - description: Attendant ID
+      - description: Employee ID
         in: path
-        name: attendant_id
+        name: employee_id
         required: true
         type: string
       produces:
@@ -85,7 +85,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/rest.Attendant'
+            $ref: '#/definitions/rest.Employee'
         "400":
           description: Bad Request
           schema:
@@ -94,9 +94,9 @@ paths:
           description: Forbidden
           schema:
             $ref: '#/definitions/rest.HTTPResponse'
-      summary: find a attendant
+      summary: find a employee
       tags:
-      - Attendant
+      - Employee
 securityDefinitions:
   ApiKeyAuth:
     in: header

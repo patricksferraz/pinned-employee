@@ -5,7 +5,7 @@
 Fill in the _.env_ file in _k8s/.env_ using _.env.example_, and run:
 
 ```sh
-kubectl create secret generic attendant-secret --from-env-file k8s/.env
+kubectl create secret generic employee-secret --from-env-file k8s/.env
 ```
 
 ## Create a secret for docker registry

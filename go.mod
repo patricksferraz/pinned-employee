@@ -1,4 +1,4 @@
-module github.com/c-4u/pinned-attendant
+module github.com/c-4u/pinned-employee
 
 go 1.18
 

@@ -3,13 +3,13 @@ package repo
 import (
 	"context"
 
-	"github.com/c-4u/pinned-attendant/domain/entity"
+	"github.com/c-4u/pinned-employee/domain/entity"
 )
 
 type RepoInterface interface {
-	CreateAttendant(ctx context.Context, attendant *entity.Attendant) error
-	FindAttendant(ctx context.Context, attendantID *string) (*entity.Attendant, error)
-	SaveAttendant(ctx context.Context, attendant *entity.Attendant) error
+	CreateEmployee(ctx context.Context, employee *entity.Employee) error
+	FindEmployee(ctx context.Context, employeeID *string) (*entity.Employee, error)
+	SaveEmployee(ctx context.Context, employee *entity.Employee) error
 
 	PublishEvent(ctx context.Context, topic, msg, key *string) error
 }

@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/asaskevich/govalidator"
-	"github.com/c-4u/pinned-attendant/utils"
+	"github.com/c-4u/pinned-employee/utils"
 	uuid "github.com/satori/go.uuid"
 )
 
@@ -12,13 +12,13 @@ func init() {
 	govalidator.SetFieldsRequiredByDefault(true)
 }
 
-type Attendant struct {
+type Employee struct {
 	Base `json:",inline" valid:"-"`
 	Name *string `json:"name" gorm:"column:name;not null" valid:"required"`
 }
 
-func NewAttendant(name *string) (*Attendant, error) {
-	e := Attendant{
+func NewEmployee(name *string) (*Employee, error) {
+	e := Employee{
 		Name: name,
 	}
 	e.ID = utils.PString(uuid.NewV4().String())
@@ -32,7 +32,7 @@ func NewAttendant(name *string) (*Attendant, error) {
 	return &e, nil
 }
 
-func (e *Attendant) IsValid() error {
+func (e *Employee) IsValid() error {
 	_, err := govalidator.ValidateStruct(e)
 	return err
 }

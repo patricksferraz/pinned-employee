@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/c-4u/pinned-attendant/domain/entity"
-	"github.com/c-4u/pinned-attendant/infra/client/kafka"
-	"github.com/c-4u/pinned-attendant/infra/db"
+	"github.com/c-4u/pinned-employee/domain/entity"
+	"github.com/c-4u/pinned-employee/infra/client/kafka"
+	"github.com/c-4u/pinned-employee/infra/db"
 	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
 )
 
@@ -22,25 +22,25 @@ func NewRepository(pg *db.PostgreSQL, kp *kafka.KafkaProducer) *Repository {
 	}
 }
 
-func (r *Repository) CreateAttendant(ctx context.Context, attendant *entity.Attendant) error {
-	err := r.Pg.Db.Create(attendant).Error
+func (r *Repository) CreateEmployee(ctx context.Context, employee *entity.Employee) error {
+	err := r.Pg.Db.Create(employee).Error
 	return err
 }
 
-func (r *Repository) FindAttendant(ctx context.Context, attendantID *string) (*entity.Attendant, error) {
-	var e entity.Attendant
+func (r *Repository) FindEmployee(ctx context.Context, employeeID *string) (*entity.Employee, error) {
+	var e entity.Employee
 
-	r.Pg.Db.First(&e, "id = ?", *attendantID)
+	r.Pg.Db.First(&e, "id = ?", *employeeID)
 
 	if e.ID == nil {
-		return nil, fmt.Errorf("no attendant found")
+		return nil, fmt.Errorf("no employee found")
 	}
 
 	return &e, nil
 }
 
-func (r *Repository) SaveAttendant(ctx context.Context, attendant *entity.Attendant) error {
-	err := r.Pg.Db.Save(attendant).Error
+func (r *Repository) SaveEmployee(ctx context.Context, employee *entity.Employee) error {
+	err := r.Pg.Db.Save(employee).Error
 	return err
 }
 

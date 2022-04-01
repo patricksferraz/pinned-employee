@@ -22,23 +22,23 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/c-4u/pinned-attendant">
+  <a href="https://github.com/c-4u/pinned-employee">
     <img src="img/logo.png" alt="Logo" width="100" height="100">
   </a>
 
-  <h3 align="center">Attendant</h3>
+  <h3 align="center">Employee</h3>
 
   <p align="center">
     Microservice for time recording
     <br />
-    <a href="https://github.com/c-4u/pinned-attendant"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/c-4u/pinned-employee"><strong>Explore the docs »</strong></a>
     <!-- <br />
     <br />
-    <a href="https://github.com/c-4u/pinned-attendant">View Demo</a>
+    <a href="https://github.com/c-4u/pinned-employee">View Demo</a>
     ·
-    <a href="https://github.com/c-4u/pinned-attendant">Report Bug</a>
+    <a href="https://github.com/c-4u/pinned-employee">Report Bug</a>
     ·
-    <a href="https://github.com/c-4u/pinned-attendant">Request Feature</a>-->
+    <a href="https://github.com/c-4u/pinned-employee">Request Feature</a>-->
   </p>
 </p>
 
@@ -71,7 +71,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Attendant is a microservice for pinned soluction providing in the application layer the communication by REST and gRPC.
+Employee is a microservice for pinned soluction providing in the application layer the communication by REST and gRPC.
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 <!--
@@ -114,7 +114,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_ --
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/c-4u/pinned-attendant/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/c-4u/pinned-employee/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -150,7 +150,7 @@ Any contributions you make are **greatly appreciated**.
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/c-4u/pinned-attendant.git
+   git clone https://github.com/c-4u/pinned-employee.git
    ```
 
 2. Run
@@ -183,7 +183,7 @@ Any contributions you make are **greatly appreciated**.
 
 Coding4u - contato@coding4u.com.br - [website](http://coding4u.com.br)
 
-Project Link: [attendant](https://github.com/c-4u/pinned-attendant)
+Project Link: [employee](https://github.com/c-4u/pinned-employee)
 
 <!-- ACKNOWLEDGEMENTS -->
 <!-- ## Acknowledgements
