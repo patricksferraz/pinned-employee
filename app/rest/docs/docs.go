@@ -29,6 +29,54 @@ var doc = `{
     "basePath": "{{.BasePath}}",
     "paths": {
         "/employees": {
+            "get": {
+                "description": "Router for search employees",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "search employees",
+                "operationId": "searchEmployees",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "page size",
+                        "name": "page_size",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "page token",
+                        "name": "page_token",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/rest.SearchEmployeesResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/rest.HTTPResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/rest.HTTPResponse"
+                        }
+                    }
+                }
+            },
             "post": {
                 "description": "Router for create a new employee",
                 "consumes": [
@@ -160,6 +208,20 @@ var doc = `{
             "type": "object",
             "properties": {
                 "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "rest.SearchEmployeesResponse": {
+            "type": "object",
+            "properties": {
+                "employees": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/rest.Employee"
+                    }
+                },
+                "next_page_token": {
                     "type": "string"
                 }
             }

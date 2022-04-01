@@ -28,11 +28,11 @@ import (
 // @securityDefinitions.apikey ApiKeyAuth
 // @in header
 // @name Authorization
-func StartRestServer(pg *db.PostgreSQL, kp *kafka.KafkaProducer, port int) {
+func StartRestServer(orm *db.DbOrm, kp *kafka.KafkaProducer, port int) {
 	r := fiber.New()
 	r.Use(cors.New())
 
-	repository := repo.NewRepository(pg, kp)
+	repository := repo.NewRepository(orm, kp)
 	service := service.NewService(repository)
 	restService := NewRestService(service)
 
@@ -42,6 +42,7 @@ func StartRestServer(pg *db.PostgreSQL, kp *kafka.KafkaProducer, port int) {
 	v1.Get("/swagger/*", fiberSwagger.WrapHandler)
 	{
 		employee := v1.Group("/employees")
+		employee.Get("", restService.SearchEmployees)
 		employee.Post("", restService.CreateEmployee)
 		employee.Get("/:employee_id", restService.FindEmployee)
 	}

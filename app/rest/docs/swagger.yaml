@@ -27,6 +27,15 @@ definitions:
       id:
         type: string
     type: object
+  rest.SearchEmployeesResponse:
+    properties:
+      employees:
+        items:
+          $ref: '#/definitions/rest.Employee'
+        type: array
+      next_page_token:
+        type: string
+    type: object
 info:
   contact:
     email: contato@coding4u.com.br
@@ -37,6 +46,38 @@ info:
   version: "1.0"
 paths:
   /employees:
+    get:
+      consumes:
+      - application/json
+      description: Router for search employees
+      operationId: searchEmployees
+      parameters:
+      - description: page size
+        in: query
+        name: page_size
+        type: integer
+      - description: page token
+        in: query
+        name: page_token
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/rest.SearchEmployeesResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/rest.HTTPResponse'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/rest.HTTPResponse'
+      summary: search employees
+      tags:
+      - Employee
     post:
       consumes:
       - application/json

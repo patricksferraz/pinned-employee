@@ -56,3 +56,22 @@ func (s *Service) FindEmployee(ctx context.Context, employeeID *string) (*entity
 
 	return employee, nil
 }
+
+func (s *Service) SearchEmployees(ctx context.Context, pageToken *string, pageSize *int) ([]*entity.Employee, *string, error) {
+	pagination, err := entity.NewPagination(pageToken, pageSize)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	searchEmployees, err := entity.NewSearchEmployees(pagination)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	employees, nextPageToken, err := s.Repo.SearchEmployees(ctx, searchEmployees)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	return employees, nextPageToken, nil
+}
