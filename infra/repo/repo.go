@@ -11,26 +11,26 @@ import (
 )
 
 type Repository struct {
-	Pg *db.DbOrm
-	Kp *kafka.KafkaProducer
+	Orm *db.DbOrm
+	Kp  *kafka.KafkaProducer
 }
 
-func NewRepository(pg *db.DbOrm, kp *kafka.KafkaProducer) *Repository {
+func NewRepository(orm *db.DbOrm, kp *kafka.KafkaProducer) *Repository {
 	return &Repository{
-		Pg: pg,
-		Kp: kp,
+		Orm: orm,
+		Kp:  kp,
 	}
 }
 
 func (r *Repository) CreateEmployee(ctx context.Context, employee *entity.Employee) error {
-	err := r.Pg.Db.Create(employee).Error
+	err := r.Orm.Db.Create(employee).Error
 	return err
 }
 
 func (r *Repository) FindEmployee(ctx context.Context, employeeID *string) (*entity.Employee, error) {
 	var e entity.Employee
 
-	r.Pg.Db.First(&e, "id = ?", *employeeID)
+	r.Orm.Db.First(&e, "id = ?", *employeeID)
 
 	if e.ID == nil {
 		return nil, fmt.Errorf("no employee found")
@@ -40,14 +40,14 @@ func (r *Repository) FindEmployee(ctx context.Context, employeeID *string) (*ent
 }
 
 func (r *Repository) SaveEmployee(ctx context.Context, employee *entity.Employee) error {
-	err := r.Pg.Db.Save(employee).Error
+	err := r.Orm.Db.Save(employee).Error
 	return err
 }
 
 func (r *Repository) SearchEmployees(ctx context.Context, searchEmployees *entity.SearchEmployees) ([]*entity.Employee, *string, error) {
 	var e []*entity.Employee
 
-	q := r.Pg.Db
+	q := r.Orm.Db
 	if *searchEmployees.PageToken != "" {
 		q = q.Where("token < ?", *searchEmployees.PageToken)
 	}
