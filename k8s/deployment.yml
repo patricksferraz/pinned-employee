@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: employee
-          image: ghcr.io/c-4u/pinned-employee
+          image: ghcr.io/patricksferraz/pinned-employee
           imagePullPolicy: IfNotPresent
           ports:
             - name: rest

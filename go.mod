@@ -1,4 +1,4 @@
-module github.com/c-4u/pinned-employee
+module github.com/patricksferraz/pinned-employee
 
 go 1.18
 

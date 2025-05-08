@@ -1,6 +1,5 @@
 /*
 Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
@@ -11,11 +10,11 @@ import (
 	"runtime"
 
 	"github.com/Netflix/go-env"
-	"github.com/c-4u/pinned-employee/app/rest"
-	"github.com/c-4u/pinned-employee/infra/client/kafka"
-	"github.com/c-4u/pinned-employee/infra/db"
 	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
 	"github.com/joho/godotenv"
+	"github.com/patricksferraz/pinned-employee/app/rest"
+	"github.com/patricksferraz/pinned-employee/infra/client/kafka"
+	"github.com/patricksferraz/pinned-employee/infra/db"
 	"github.com/spf13/cobra"
 	"gorm.io/gorm/logger"
 )
